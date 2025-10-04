@@ -1,21 +1,23 @@
+// main.c de ejemplo
+#include <stdio.h>
 
-geo2nginx.pl 		by Andrei Nigmatulin
+void menu() {
+    printf("\n=== MENU ===\n");
+    printf("1) Saludo\n");
+    printf("0) Salir\n");
+    printf("Opcion: ");
+}
 
-	The perl script to convert CSV geoip database ( free download
-	at http://www.maxmind.com/app/geoip_country ) to format, suitable
-	for use by the ngx_http_geo_module.
-
-
-unicode2nginx		by Maxim Dounin
-
-	The perl script to convert unicode mappings ( available
-	at http://www.unicode.org/Public/MAPPINGS/ ) to the nginx
-	configuration file format.
-	Two generated full maps for windows-1251 and koi8-r.
-
-
-vim			by Evan Miller
-
-	Syntax highlighting of nginx configuration for vim, to be
-	placed into ~/.vim/.
-
+int main() {
+    int op;
+    do {
+        menu();
+        if (scanf("%d", &op) != 1) { return 0; }
+        switch(op) {
+            case 1: printf("Hola, GitHub!\n"); break;
+            case 0: printf("Adios!\n"); break;
+            default: printf("Opcion invalida\n"); break;
+        }
+    } while(op != 0);
+    return 0;
+}
